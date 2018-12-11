@@ -13,7 +13,6 @@ import org.scalajs.dom.raw.HTMLInputElement
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
-import scala.scalajs.js.JSApp
 import scala.util.{Failure, Success}
 
 /*
@@ -106,7 +105,7 @@ object Middleware {
   }
 }
 
-object Main extends JSApp {
+object Main {
   def main(): Unit = {
     /*
     * Use Redux.applyMiddleware to create an enhancer for middlewares.

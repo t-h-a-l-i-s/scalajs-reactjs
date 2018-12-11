@@ -1,12 +1,12 @@
-val CreateReactClassVersion = "^15.5.1"
-val HistoryVersion = "^4.6.1"
-val ReactVersion = "^15.5.3"
-val ReactReduxVersion = "^5.0.3"
-val ReactRouterVersion = "^4.0.0"
+val CreateReactClassVersion = "next"
+val HistoryVersion = "^4.7.2"
+val ReactVersion = "^16.6.3"
+val ReactReduxVersion = "^6.0.0"
+val ReactRouterVersion = "^4.3.1"
 val ReactRouterReduxVersion = "next"
-val ReduxVersion = "^3.6.0"
-val ReduxDevToolsVersion = "^2.13.0"
-val WebpackVersion = "^2.3.2"
+val ReduxVersion = "^4.0.1"
+val ReduxDevToolsVersion = "^2.16.5"
+val WebpackVersion = "^4.27.1"
 
 val StaticTagsVersion = "[2.4.0,3.0.0["
 
@@ -14,7 +14,7 @@ val JettyVersion = "9.+"
 val SeleniumVersion = "[3.4.0,4.0.0["
 val ScalaTestVersion = "[3.1.0,4.0.0["
 
-crossScalaVersions := Seq("2.12.2")
+crossScalaVersions := Seq("2.12.8")
 
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
@@ -28,13 +28,12 @@ publishArtifact := false
 val commonSettings = Seq(
   organization := "io.github.shogowada",
   name := "scalajs-reactjs",
-  version := "0.14.0",
+  version := "0.15.0-SNAPSHOT",
   licenses := Seq("MIT" -> url("https://opensource.org/licenses/MIT")),
   homepage := Some(url("https://github.com/shogowada/scalajs-reactjs")),
-  scalaVersion := "2.12.2",
-  ivyScala := ivyScala.value.map {
-    _.copy(overrideScalaVersion = true)
-  },
+  scalaVersion := "2.12.8",
+  scalacOptions := Seq("-unchecked", "-deprecation"),
+  scalaJSUseMainModuleInitializer := true,
   publishMavenStyle := true,
   publishTo := {
     val nexus = "https://oss.sonatype.org/"

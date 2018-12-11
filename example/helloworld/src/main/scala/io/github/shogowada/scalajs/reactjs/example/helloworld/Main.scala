@@ -4,9 +4,7 @@ import io.github.shogowada.scalajs.reactjs.VirtualDOM._
 import io.github.shogowada.scalajs.reactjs.{React, ReactDOM}
 import org.scalajs.dom
 
-import scala.scalajs.js.JSApp
-
-object Main extends JSApp {
+object Main {
   def main(): Unit = {
     case class WrappedProps(name: String)
 

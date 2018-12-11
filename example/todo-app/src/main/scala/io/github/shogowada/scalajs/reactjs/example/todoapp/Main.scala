@@ -8,7 +8,6 @@ import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLInputElement
 
 import scala.scalajs.js
-import scala.scalajs.js.JSApp
 
 /* For comparison, JSX version looks like this:
 class TodoApp extends React.Component {
@@ -64,7 +63,7 @@ class TodoList extends React.Component {
 ReactDOM.render(<TodoApp />, mountNode);
 */
 
-object Main extends JSApp {
+object Main {
   def main(): Unit = {
     val mountNode = dom.document.getElementById("mount-node")
     ReactDOM.render(

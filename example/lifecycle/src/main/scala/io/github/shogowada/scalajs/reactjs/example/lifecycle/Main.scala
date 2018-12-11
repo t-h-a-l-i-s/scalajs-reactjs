@@ -4,8 +4,6 @@ import io.github.shogowada.scalajs.reactjs.VirtualDOM._
 import io.github.shogowada.scalajs.reactjs.{React, ReactDOM}
 import org.scalajs.dom
 
-import scala.scalajs.js.JSApp
-
 object App {
   case class State(
       componentDidMountCalled: Boolean,
@@ -53,8 +51,8 @@ object App {
   )
 }
 
-object Main extends JSApp {
-  override def main(): Unit = {
+object Main {
+  def main(args: Array[String]): Unit = {
     val mountNode = dom.document.getElementById("mount-node")
     ReactDOM.render(<(App()).empty, mountNode)
   }
