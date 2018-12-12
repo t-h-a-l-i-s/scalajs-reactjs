@@ -9,7 +9,7 @@ import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLInputElement
 
 object Main {
-  def main(): Unit = {
+  def main(args: Array[String]): Unit = {
     val mountNode = dom.document.getElementById("mount-node")
     ReactDOM.render(<(InteractiveHelloWorld()).empty, mountNode)
   }

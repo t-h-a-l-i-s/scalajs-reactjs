@@ -106,7 +106,7 @@ object Middleware {
 }
 
 object Main {
-  def main(): Unit = {
+  def main(args: Array[String]): Unit = {
     /*
     * Use Redux.applyMiddleware to create an enhancer for middlewares.
     * You can also use them with ReduxDevTools.composeWithDevTools to enable React DevTools.

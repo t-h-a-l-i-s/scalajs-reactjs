@@ -5,7 +5,7 @@ import io.github.shogowada.scalajs.reactjs.VirtualDOM._
 import org.scalajs.dom
 
 object Main {
-  def main(): Unit = {
+  def main(args: Array[String]): Unit = {
     object HelloWorld {
       def apply(name: String) = <.div(^.id := "hello-world")(s"Hello, ${name}!")
     }

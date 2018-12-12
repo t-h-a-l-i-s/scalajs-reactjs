@@ -1,11 +1,11 @@
-val CreateReactClassVersion = "next"
+val CreateReactClassVersion = "^15.6.3"
 val HistoryVersion = "^4.7.2"
 val ReactVersion = "^16.6.3"
 val ReactReduxVersion = "^6.0.0"
 val ReactRouterVersion = "^4.3.1"
 val ReactRouterReduxVersion = "next"
 val ReduxVersion = "^4.0.1"
-val ReduxDevToolsVersion = "^2.16.5"
+val ReduxDevToolsVersion = "^2.13.7"
 val WebpackVersion = "^4.27.1"
 
 val StaticTagsVersion = "[2.4.0,3.0.0["
@@ -33,7 +33,7 @@ val commonSettings = Seq(
   homepage := Some(url("https://github.com/shogowada/scalajs-reactjs")),
   scalaVersion := "2.12.8",
   scalacOptions := Seq("-unchecked", "-deprecation"),
-  scalaJSUseMainModuleInitializer := true,
+  scalaJSUseMainModuleInitializer := false,
   publishMavenStyle := true,
   publishTo := {
     val nexus = "https://oss.sonatype.org/"
@@ -161,7 +161,8 @@ lazy val routerRedux = project.in(file("router-redux"))
 
 val exampleCommonSettings = commonSettings ++ Seq(
   name += "-example",
-  (unmanagedResourceDirectories in Compile) += baseDirectory.value / "src" / "main" / "webapp"
+  (unmanagedResourceDirectories in Compile) += baseDirectory.value / "src" / "main" / "webapp",
+  scalaJSUseMainModuleInitializer := true
 )
 
 lazy val exampleCustomVirtualDOM = project.in(file("example") / "custom-virtual-dom")
@@ -267,10 +268,10 @@ lazy val exampleTest = project.in(file("example") / "test")
     .settings(
       name += "-example-test",
       libraryDependencies ++= Seq(
-        "org.eclipse.jetty" % "jetty-server" % JettyVersion,
-        "org.seleniumhq.selenium" % "selenium-java" % SeleniumVersion,
-
-        "org.scalatest" %% "scalatest" % ScalaTestVersion
+        "org.eclipse.jetty" % "jetty-server" % JettyVersion % "it,test",
+        "org.seleniumhq.selenium" % "selenium-java" % SeleniumVersion % "it,test",
+        "org.scalacheck" %% "scalacheck" % "1.13.4" % "it,test",
+        "org.scalatest" %% "scalatest" % ScalaTestVersion % "it,test"
       ),
       javaOptions ++= Seq(
         s"-Dtarget.path.custom-virtual-dom=${(crossTarget in exampleCustomVirtualDOM).value}",

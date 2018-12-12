@@ -5,7 +5,7 @@ import io.github.shogowada.scalajs.reactjs.{React, ReactDOM}
 import org.scalajs.dom
 
 object Main {
-  def main(): Unit = {
+  def main(args: Array[String]): Unit = {
     case class WrappedProps(name: String)
 
     val reactClass = React.createClass[WrappedProps, Unit](
